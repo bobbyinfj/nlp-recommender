@@ -1,6 +1,17 @@
 # nlp-recommender
 A NLP-based recommender system for a simplified version of the MIND-small dataset.
 
+## Description 
+This project constructs a recommender model using deep learning architecture and NLP techniques. The dataset consists of (1) user-news interactions and (2) news titles and abstracts. The model predicts whether the user will click on an unseen news article. 
+
+## Goals 
+1. Design a deep learning network that can take as input user-news items and output a binary variable (1/0) for prediction of user clicking on article 
+2. Build and train the model using a Python deep learning library 
+3. Test the model against user-news combinations not seen in training 
+4. Report on the performance of the model 
+
+You can read about the original dataset at [https://github.com/msnews/msnews.github.io/blob/master/assets/doc/introduction.md](https://github.com/msnews/msnews.github.io/blob/master/assets/doc/introduction.md). For the purpose of this project, only the user-news interactions and news titles and abstracts columns will be utilized. 
+
 ## Design Approach
 
 The code is divided into two notebooks:
@@ -23,13 +34,13 @@ The emphasis of this approach is that a simple tokenization model could be outpe
 
 The model seeks to leverage the content of text data for the title and abstract columns, by transfer learning with a BERT model. In order to best predict clicks, a hybrid approach was utilized, coupling BERT output with user and item embeddings. The model utilizes TensorFlow preprocessing layers and the tf.dataset file format with data caching for ease of deployment and performance.
 
-## Sampling methodology
+## Sampling Methodology
 
 Data was sampled by randomly selecting 10% of users and keeping their respective interactions. This ensures that each user has the most comprehensive interaction set available for training. The remaining 90% of users were reserved for cold-start user evaluation.
 
 Once users were sampled, the subset of data was manually verified to demonstrate the same balance of click labels were used as the original data (80% no click).
 
-## Training/testing methodology
+## Training/Testing Methodology
 
 The sampled data was split into 60/20/20 train, validation, and test splits. Data was shuffled, and stratified on users to ensure a random, balanced dataset with meaningful predictions per user. The balance of the target variable "click" was manually verified, but left out of the stratification to allow for users without both click labels to be included in the dataset.
 
@@ -54,7 +65,7 @@ Out of Sample</td>
 
 Binary cross entropy was utilized as a loss function with an Adam optimizer utilizing weight decay. Best weights were loaded from previous training checkpoints for a total of 15 epochs (2+2+1+10). Initial learning rate was set at 3x10-5 and a number of warmup steps set to 10% of the total number of training steps.
 
-## Model network architecture
+## Model Network Architecture
 
 The model utilized a deep component for the user and item embeddings and BERT encodings, as well as a shallow component for the user and item embeddings.
 
@@ -64,7 +75,7 @@ Including user and item hashing (and text preprocessing) in the model pipeline a
 
 ![image alt text](image_0.png)
 
-## Model performance
+## Model Performance
 
 <table>
   <tr>
