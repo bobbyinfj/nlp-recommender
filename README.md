@@ -1,12 +1,6 @@
 # nlp-recommender
 A NLP-based recommender system for a simplified version of the MIND-small dataset.
 
-12/24/2020
-
-Recommender Data Challenge
-
-Robert Nakano
-
 ## Design Approach
 
 The code is divided into two notebooks:
@@ -78,23 +72,23 @@ Including user and item hashing (and text preprocessing) in the model pipeline a
     <td>Cold-start User Set</td>
   </tr>
   <tr>
-    <td>loss :  0.20632344484329224
-fp :  780.0
-tp :  17881.0
-tn :  97755.0
-fn :  6201.0
-accuracy :  0.9430665969848633
-precision :  0.9582015872001648
-recall :  0.7425047755241394
+    <td>loss :  0.20632344484329224 <br />
+fp :  780.0 <br />
+tp :  17881.0 <br />
+tn :  97755.0 <br />
+fn :  6201.0 <br />
+accuracy :  0.9430665969848633 <br />
+precision :  0.9582015872001648 <br />
+recall :  0.7425047755241394 <br />
 auc :  0.925247311592102</td>
-    <td>loss :  0.21046993136405945
-fp :  33949.0
-tp :  757444.0
-tn :  4219464.0
-fn :  271046.0
-accuracy :  0.9422566294670105
-precision :  0.9571022391319275
-recall :  0.7364621758460999
+    <td>loss :  0.21046993136405945 <br />
+fp :  33949.0 <br />
+tp :  757444.0 <br />
+tn :  4219464.0 <br />
+fn :  271046.0 <br />
+accuracy :  0.9422566294670105 <br />
+precision :  0.9571022391319275 <br />
+recall :  0.7364621758460999 <br />
 auc :  0.9194666147232056</td>
   </tr>
 </table>
